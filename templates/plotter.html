@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plot a graph</title>
+</head>
+<body>
+        <h1>Welcome to plotting graph web app</h1>
+        <section>
+            <h2>Input section</h2>
+            <form action="/plotter" method="post">
+                <label for="from-x"> Enter start: </label>
+                <input type="number" id="from-x" name="from-x" required>
+                <label for="to-x"> Enter end: </label>
+                <input type="number" id="to-x" name="to-x" required><br>
+                
+                <label for="separate-plots">Plot Separate Graphs:</label>
+                <input type="checkbox" name="separate-plots" id="separate-plots"><br>
+
+                <label for="histogram-data">Comma-Separated Values (for Histogram):</label>
+                <input type="text" name="histogram-data" placeholder="e.g., 1,2,3,4,5"><br>
+                
+                <h3>Graph types</h3>
+                <section>
+                    <input type="checkbox" id="sin" name="sin">
+                    <label for="sin">sin graph</label>
+                    <input type="checkbox" id="cos" name="cos">
+                    <label for="cos">cos graph</label>
+                    <input type="checkbox" id="parabola" name="parabola">
+                    <label for="parabola">parabola graph</label>
+                    <input type="checkbox" id="sqrt" name="sqrt">
+                    <label for="sqrt">square root graph</label>
+                </section>
+                <button type="submit"> submit </button>
+            </form>
+        </section>
+        
+        <h1> Result </h1>
+        <section>
+            {% if image_path %}
+            <img src="{{ image_path }}">
+            {% endif %}
+        </section>
+</body>
+</html>
